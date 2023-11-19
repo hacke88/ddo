@@ -30,13 +30,6 @@ def create_proxy_file_if_not_exists():
     elif os.path.exists("proxy.txt") and os.path.getsize("proxy.txt") == 0:
         print(f"{Fore.RED}\nLỗi: Vui lòng thêm proxy vào file proxy.txt để sử dụng ddos tool!{Style.RESET_ALL}")
         sys.exit()
-    else:
-        with open("proxy.txt", "r") as proxy_file:
-            for line in proxy_file:
-                proxy = line.strip()
-                if not re.match(r"^\d+\.\d+\.\d+\.\d+:\d+$", proxy):
-                    print(f"{Fore.RED}\nLỗi: Proxy phải là http/https, vui lòng nhập đúng định dạng ip proxy ví dụ: 103.167.22.58:80{Style.RESET_ALL}")
-                    sys.exit()
 def run_ddos(args, process):
     start_time = time.time()
     custom_colors = None
